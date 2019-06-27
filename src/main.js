@@ -5,7 +5,8 @@ import store from './store'
 
 
 Vue.config.productionTip = false
-
+//加载通用样式  all in js
+import "./stylesheets/main.scss"
 new Vue({
   router,
   store,
