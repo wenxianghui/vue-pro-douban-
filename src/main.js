@@ -9,6 +9,10 @@ Vue.config.productionTip = false
 import "./stylesheets/main.scss"
 //引入rem.js
 import "./modules/rem"
+//引入swiper.min.css样式文件
+import "swiper/dist/css/swiper.min.css"
+import axios from "axios"
+Vue.prototype.$http = axios;   //方便以后在组件中通过 this.$http获取啊axios
 new Vue({
   router,
   store,

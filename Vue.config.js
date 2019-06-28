@@ -32,9 +32,15 @@ module.exports = {
         port: 8080,
         https: false,
         hotOnly: false,
-        // proxy: {
-
-        // }, // 设置代理
+        proxy: { // 设置  代理  //       /db/in_theaters?limit=6    
+            "/api":{
+                target:"http://47.96.0.211:9000",
+                changeOrigin:true,
+                pathRewrite:{
+                    "^/api":""
+                }
+            }
+        }, 
         before: app => { }
     },
     // 第三方插件配置

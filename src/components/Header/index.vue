@@ -68,7 +68,10 @@ export default {
         color:#fff;  
         display: flex;
         justify-content: space-between; 
-        padding: 0 .2rem;   
+        padding: 0 .2rem;  
+        position:fixed;
+        top:0;
+        left:0; 
         i{
             padding-right: 6px;
         }

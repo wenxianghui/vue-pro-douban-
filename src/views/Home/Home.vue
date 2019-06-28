@@ -1,6 +1,9 @@
 <template>
-    <div class="class">
-        <Banner></Banner>
+    <div class="home">
+        <div style="padding-top:60px">
+            <Banner></Banner>
+            <MovieBox></MovieBox>
+        </div>
         <Tabbar></Tabbar>
     </div>
 </template>
@@ -9,14 +12,18 @@
 //引入Tabbar组件
 import Tabbar from "@/components/Tabbar"    //index可以不写
 import Banner from "@/components/Banner"
+import MovieBox from "./MovieBox"
 export default {
     components:{
         Tabbar,
-        Banner
+        Banner,
+        MovieBox
     }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+    .home{
+        padding-bottom:60px;
+    }
 </style>
