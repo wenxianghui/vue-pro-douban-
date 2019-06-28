@@ -2,20 +2,18 @@
   <div id="app">
       <div>
         <router-view> </router-view>
-        <Tabbar></Tabbar>
+        <AppHeader></AppHeader>
       </div>
   </div>
 </template>
 <script>
-//引入Tabbar组件
-import Tabbar from "./components/Tabbar"    //index可以不写
+import AppHeader from "@/components/Header"
 export default {
   components:{
-    Tabbar
+    AppHeader
   }
 }
 </script>
-
 <style>
 
 

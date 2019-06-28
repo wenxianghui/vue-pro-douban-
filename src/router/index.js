@@ -8,8 +8,10 @@ import group from './group'
 import mine from './mine'
 export default new Router({
   routes: [
-    home,audio,broadcast,group,mine
-
+    {path:"/", redirect:"home"},
+    home,audio,broadcast,group,mine,
+    {path:"/notfound",component:()=>import("@/views/Notfound/Notfound")},
+    {path:"*", redirect:"notfound"}
   ]
 })
  
