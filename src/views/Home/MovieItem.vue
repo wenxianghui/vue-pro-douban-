@@ -1,29 +1,45 @@
 <template>
     <div class="movieitem">
         <div class="img-box">
-            <img width="100%" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1561739188060&di=3cce7009310cd6f009841ab539a3c875&imgtype=0&src=http%3A%2F%2Fpic37.nipic.com%2F20140113%2F8800276_184927469000_2.png" alt="">
+            <img width="100%" :src="getImages(movie.images.small)" alt="">
         </div>
         <div class="info">
             <div class="info-left">
-                <div class="title">急死我</div>
-                <div class="count">8256</div>
+                <div class="title">{{movie.title}}</div>
+                <div class="count">{{movie.collect_count}}人评价</div>
             </div>
             <div class="info-right">
-                <div class="director">杨彪子</div>
-                <div class="rating">8</div>
+                <div class="director">导演：{{movie.directors[0].name}}</div>
+                <div class="rating">评分：{{movie.rating.average}}</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-
+import  getImages from "@/modules/util-getImages"
+export default { 
+    props:{
+        movie:Object
+    },
+    methods:{
+       //getImages
+        getImages
+    }
 }
 </script>
 
 <style lang="scss">
-    .movieitem{
+    .movieitem{      
+        box-shadow:2px 3px 4px #c5bdbd;
+        border-radius:5px;
+        margin-bottom:20px;
+        .img-box{
+            height:2.2rem;
+            img{
+                height:2.2rem;
+            }
+        }
         .info{
             display:flex;
             justify-content:space-between;
@@ -35,7 +51,7 @@ export default {
                 padding-top:4px;
                 padding-bottom:4px;
             }
-            .rating{
+            .rating,.director{
                 padding-top:4px;
                 color:orange;
                 font-size:16px;

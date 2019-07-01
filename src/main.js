@@ -11,8 +11,12 @@ import "./stylesheets/main.scss"
 import "./modules/rem"
 //引入swiper.min.css样式文件
 import "swiper/dist/css/swiper.min.css"
+
 import axios from "axios"
 Vue.prototype.$http = axios;   //方便以后在组件中通过 this.$http获取啊axios
+
+import { InfiniteScroll } from 'mint-ui';
+Vue.use(InfiniteScroll);
 new Vue({
   router,
   store,

@@ -64,10 +64,12 @@ export default {
         position: fixed;
         bottom:0;
         left:0;
+        background:#fff;
         width:100%;
         height:60px;
         display:flex;
         border-top:1px solid #e1dcdc;
+
     }
 
 </style>

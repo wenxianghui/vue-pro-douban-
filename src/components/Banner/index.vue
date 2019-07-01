@@ -16,7 +16,7 @@
 <script>
 //https://blog.csdn.net/jsyxiaoba/article/details/79628983
 import Swiper from "swiper"
-//import getImages from "@/modules/util-getImages"
+import getImages from "@/modules/util-getImages"
 export default {
     data(){
         return{
@@ -25,12 +25,12 @@ export default {
     },
     methods:{
        //getImages
-        getImages( _url ){
+        getImages/* ( _url ){
             if( _url !== undefined ){
                 let _u = _url.substring( 7 );
                 return 'https://images.weserv.nl/?url=' + _u;
             }
-        }
+        } */
     },
     created(){  
         this.$http.get("/api/db/in_theaters?limit=6",{
@@ -38,7 +38,6 @@ export default {
                 limit:6
             }
         }).then(res=>{
-            console.log(res.data)
             this.banners = res.data.object_list;
             //数据后续更改  虚拟dom进行对比 Ddiff算法 重新进行真是dom的渲染
             //必须等到因数据改变引发真实dom渲染完毕后，再去进行实例化操作即可

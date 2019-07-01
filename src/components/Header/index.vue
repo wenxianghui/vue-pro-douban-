@@ -20,9 +20,13 @@ export default {
             isShow:true
         }
     },
-    created(){
-        //执行全局前置路由守卫
-        router.beforeEach((to,from,next)=>{
+    watch:{
+        $route(val){
+            this.changeRoute(val)
+        }    
+    },
+    methods:{
+        changeRoute(to){
             switch(to.name){
                 case "home":
                     this.icon = "home";
@@ -53,6 +57,12 @@ export default {
                     this.isShow = false
                 break
             }
+        }
+    },
+    created(){
+        //执行全局前置路由守卫   路由切换的时候才会进入
+        router.beforeEach((to,from,next)=>{
+            this.changeRoute(to)
             next();
         })
     }
