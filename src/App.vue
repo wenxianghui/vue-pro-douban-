@@ -2,6 +2,7 @@
   <div id="app">
       <router-view></router-view>
       <AppHeader></AppHeader>
+      hello world
   </div>
 </template>
 <script>
