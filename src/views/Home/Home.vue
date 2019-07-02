@@ -7,9 +7,11 @@
             <span
                 v-for="nav in navs"
                 :key="nav.id"
+                :class="{active:type===nav.type}"
+                @click="type=nav.type"
             >{{nav.title}}</span>
         </div>
-        <MovieBox></MovieBox>
+        <MovieBox :type="type"></MovieBox>
         <Tabbar></Tabbar>
     </div>
 </template>
@@ -49,8 +51,27 @@ export default {
             justify-content:space-around;
             align-items:center;
             margin-top:10px;
+            span{
+                transition:all 1`s;
+                position:relative;
+                &::after{
+                    transition:all 1s;
+                    content:"";
+                    width:60px;
+                    height:3px;
+                    position:absolute;
+                    left:50%;
+                    bottom:-10px;
+                    margin-left:-30px;
+                    background:transparent;
+                }
+            }
             .active{
                 color:orange;
+                &::after{
+                    background:orange;
+                }
+
             }
         }
     }
