@@ -4,9 +4,8 @@
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10"
     >
-        <div class="loading" v-if="movies.length===0"></div>
+      <!--   <div class="loading" v-if="movies.length===0"></div> -->
         <MovieItem
-            v-else
             v-for="movie in movies"
             :key="movie.id"
             :movie="movie"
@@ -28,6 +27,14 @@ export default {
             hasMore:true,
         }
     },
+    watch:{
+        type(val){ 
+            this.movies = [];   //请求之前的数据
+            this.page = 1;      //请求第一页的数据
+            this.hasMore = true;//代表有更多数据
+            this.getMovies();   //请求数据
+        }
+    },
     methods:{
         loadMore(){
             if(!this.hasMore){//没有更多数据了
@@ -47,7 +54,7 @@ export default {
                 message: '正在加载中...',
                 iconClass: 'fa fa-cog fa-spin'
             },-1);
-            this.$http.get("/api/db/in_theaters",{
+            this.$http.get("/api/db/"+this.type,{
                 params:{
                     limit,
                     page
